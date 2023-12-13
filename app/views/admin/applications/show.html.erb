@@ -1,7 +1,7 @@
 <h1>Approve a Pet?</h1>
 
 <% @pets.each do |pet| %>
-  <% if pet.adoptable == false && pet.rejected == false %>
+  <% if (pet.adoptable == false) && (pet.rejected == false) %>
   <ul>
     <li><%= pet.name %></li>
     <li>
@@ -13,14 +13,14 @@
       <% end %>
     </li>
   </ul>
-  <% elsif pet.adoptable == true && pet.rejected == false %>
+  <% elsif (pet.adoptable == true) && (pet.rejected == false) && (@commit_param == "Approve garfield!") %>
   <ul>
     <li><%= pet.name %></li>
     <li>
       Pet Approved
     </li>
   </ul>
-  <% elsif pet.adoptable == false && pet.rejected == true %>
+  <% elsif (pet.adoptable == false) && (pet.rejected == true) && (@commit_param == "Reject garfield!") %>
   <ul>
     <li><%= pet.name %></li>
     <li>
